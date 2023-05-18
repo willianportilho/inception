@@ -10,11 +10,7 @@ services:
 #       - wordpress
     ports:
         - "80:80"
-    # volumes:
-#       Lembrar de apagar esse volume e copiá-lo no Dockerfile do nginx com COPY
-        # - ./requirements/nginx/conf/:/etc/nginx/http.d/
-        # - /home/${USER}/inception/public/html/:/var/www/
-#       Lembrar de adicionar o ssl como copy
+
 #       Lembrar de adicionar o volume wordpress que será criado
 
 #   reiniciará os containers sempre que ocorrer qualquer falha
