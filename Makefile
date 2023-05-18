@@ -5,11 +5,11 @@ all:
 #		adiciona meu próprio nome localhost aos hosts
 		sudo sed -i '1s/.*/127.0.0.1       wportilh.42.fr localhost/' /etc/hosts
 # 		inicializa e atualiza os containers
-		@docker-compose -f ./docker-compose.yml up -d --build
+		@docker-compose -f srcs/docker-compose.yml up -d --build
 
 down:
 #		destrói os containers, volumes se a flag -v não estiver presente e redes que não estão sendo utilizadas
-		@docker-compose -f ./docker-compose.yml down
+		@docker-compose -f srcs/docker-compose.yml down
 
 #		constrói os containers a partir do 0, havendo ou não alterações nos containers
 re:		fclean
