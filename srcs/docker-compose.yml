@@ -4,8 +4,8 @@ services:
   nginx:
     build:
       context: .
-      dockefile: requirements/nginx/Dockerfile
-      container_name: nginx
+      dockerfile: requirements/nginx/Dockerfile
+    container_name: nginx
 #   depends_on:
 #       - wordpress
     ports:
