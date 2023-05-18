@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  nginx:
+    build:
+      context: .
+      dockefile: requirements/nginx/Dockerfile
+      container_name: nginx
+#   depends_on:
+#       - wordpress
+    ports:
+        - "443:443"
+    volumes:
+#       Lembrar de apagar esse volume e copiá-lo no Dockerfile do nginx com COPY
+        - ./requirements/nginx/conf/:/etc/nginx/http.d/
+#       Lembrar de adicionar o ssl como copy
+#       Lembrar de adicionar o volume wordpress que será criado
+
+#   reiniciará os containers sempre que ocorrer qualquer falha
+    restart: always
