@@ -10,8 +10,18 @@ services:
 #       - wordpress
     ports:
         - 443:443
-
-#       Lembrar de adicionar o volume wordpress que será criado
-
 #   reiniciará os containers sempre que ocorrer qualquer falha
+    restart: always
+  mariadb:
+    build:
+      context: .
+      dockerfile: requirements/mariadb/Dockerfile
+      args:
+        DB_NAME: ${DB_NAME}
+        DB_USER_NAME: ${DB_USER_NAME}
+        DB_USER_PASS: ${DB_USER_PASS}
+        DB_ROOT_PASS: ${DB_ROOT_PASS}
+    container_name: mariadb
+    ports:
+      - "3306:3306"
     restart: always
