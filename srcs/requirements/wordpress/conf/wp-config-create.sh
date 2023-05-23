@@ -16,6 +16,5 @@ if [ -f "/var/www/wp-config.php" ]; then
         echo "  define( 'ABSPATH', __DIR__ . '/' );"
         echo "}"
         echo "require_once ABSPATH . 'wp-settings.php';"
-  } > /var/www/wp-config.php
-    }
+    }   > /var/www/wp-config.php
 fi

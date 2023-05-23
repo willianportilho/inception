@@ -43,7 +43,7 @@ services:
         DB_USER_NAME: ${DB_USER_NAME}
         DB_USER_PASS: ${DB_USER_PASS}
         DB_HOST_NAME: ${DB_HOST_NAME}
-    container-name: wordpress
+    container_name: wordpress
     depends_on:
       - mariadb
     restart: always
