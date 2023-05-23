@@ -31,10 +31,6 @@ RUN apk add --no-cache  \
 
 WORKDIR	/var/www
 
-RUN		wget http://wordpress.org/latest.tar.gz; \
-		tar -xzvf latest.tar.gz; \
-		rm latest.tar.gz
-
 COPY	./requirements/wordpress/conf/wp-config-create.sh .
 
 RUN		chmod +x wp-config-create.sh && sh wp-config-create.sh
