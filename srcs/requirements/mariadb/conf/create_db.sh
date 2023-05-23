@@ -1,5 +1,15 @@
 #!bin/sh
 
+# bind-address (define o endereço IP ao qual o servidor aceitará conexões de rede.)
+# definido assim, permite que o MariaDB aceite qualquer conexão de rede disponível
+# O wordpress por exemplo, pode se conectar a ele com seu nome host (mariadb) ou seu ip.
+# skip-networking=0 permite que maridb aceite conexões de rede (wordpress consegue se conectar assim)
+sed -i "s|skip-networking|skip-networking=0|g" /etc/my.cnf.d/mariadb-server.cnf
+{
+	echo '[mysqld]';
+	echo 'bind-address=0.0.0.0';
+}	>> /etc/my.cnf.d/docker.cnf
+
 if [ ! -d "/var/run/mysqld" ]; then
 	mkdir /var/run/mysqld
     chmod 777 /var/run/mysqld
