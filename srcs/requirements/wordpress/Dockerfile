@@ -1,5 +1,10 @@
 FROM alpine:3.17
 
+ARG DB_NAME \
+    DB_USER_NAME \
+    DB_USER_PASS \
+	DB_HOST_NAME
+
 RUN apk add --no-cache  	\
 		php8.1-common     	\
 		php8.1-session    	\
