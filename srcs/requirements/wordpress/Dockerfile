@@ -6,6 +6,7 @@ ARG DB_NAME \
 	DB_HOST_NAME
 
 RUN apk add --no-cache  \
+	php81				\
 	php81-fpm			\
 	php81-common		\
 	php81-session		\
@@ -19,9 +20,7 @@ RUN apk add --no-cache  \
 	php81-pdo			\
 	php81-pdo_mysql		\
 	php81-soap			\
-	# php81-xmlrpc		\
 	php81-posix			\
-	# php81-mcrypt		\
 	php81-gettext		\
 	php81-ldap			\
 	php81-ctype			\
