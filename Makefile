@@ -1,7 +1,6 @@
-#		nome do container
-name =	simple_nginx_html
-
 all:
+		@mkdir -p /home/${USER}/data/wordpress
+		@mkdir -p /home/${USER}/data/mariadb
 #		adiciona meu próprio nome localhost aos hosts
 		sudo sed -i '1s/.*/127.0.0.1       wportilh.42.fr localhost/' /etc/hosts
 # 		inicializa e atualiza os containers

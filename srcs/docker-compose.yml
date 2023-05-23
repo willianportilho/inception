@@ -6,12 +6,16 @@ services:
       context: .
       dockerfile: requirements/nginx/Dockerfile
     container_name: nginx
-#   depends_on:
-#       - wordpress
+    depends_on:
+      - wordpress
     ports:
-        - 443:443
-#   reiniciará os containers sempre que ocorrer qualquer falha
+      - 443:443
     restart: always
+    volumes:  
+      - wp-volume:/var/www
+    networks:
+      - inception
+
   mariadb:
     build:
       context: .
@@ -25,3 +29,41 @@ services:
     ports:
       - "3306:3306"
     restart: always
+    volumes:  
+      - db-volume:/var/lib/mysql
+    networks:
+      - inception
+
+  wordpress:
+    build:
+      context: .
+      dockerfile: requirements/wordpress/Dockerfile
+      args:
+        DB_NAME: ${DB_NAME}
+        DB_USER_NAME: ${DB_USER_NAME}
+        DB_USER_PASS: ${DB_USER_PASS}
+    container-name: wordpress
+    depends_on:
+      - mariadb
+    restart: always
+    volumes:  
+      - wp-volume:/var/www
+    networks:
+      - inception
+
+volumes:
+  wp-volume:
+    driver_opts:
+      o: bind
+      type: none
+      device: /home/${USER}/data/wordpress
+
+  db-volume:
+    driver_opts:
+      o: bind
+      type: none
+      device: /home/${USER}/data/mariadb
+
+networks:
+  inception:
+    driver: bridge
