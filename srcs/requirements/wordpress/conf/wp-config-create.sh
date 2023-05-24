@@ -9,7 +9,7 @@ tar -xzvf latest.tar.gz
 cp -rf wordpress/* .
 rm -rf wordpress latest.tar.gz
 
-if [ -f "/var/www/wp-config.php" ]; then
+if [ ! -f "/var/www/wp-config.php" ]; then
     {
         echo "<?php"
         echo "define('DB_NAME','${DB_NAME}');"
