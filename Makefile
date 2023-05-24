@@ -1,6 +1,6 @@
 all:
-		@mkdir -p /home/${USER}/data/wordpress
-		@mkdir -p /home/${USER}/data/mariadb
+		@sudo mkdir -p /home/wportilh/data/wordpress
+		@sudo mkdir -p /home/wportilh/data/mariadb
 #		adiciona meu próprio nome localhost aos hosts
 		sudo sed -i '1s/.*/127.0.0.1       wportilh.42.fr localhost/' /etc/hosts
 # 		inicializa e atualiza os containers

@@ -57,13 +57,13 @@ volumes:
     driver_opts:
       o: bind
       type: none
-      device: /home/${USER}/data/wordpress
+      device: /home/wportilh/data/wordpress
 
   db-volume:
     driver_opts:
       o: bind
       type: none
-      device: /home/${USER}/data/mariadb
+      device: /home/wportilh/data/mariadb
 
 networks:
   inception:
