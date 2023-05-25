@@ -26,6 +26,7 @@ RUN apk add --no-cache  \
 	php81-ctype			\
 	php81-dom			\
 	php81-simplexml		\
+	mariadb-client		\
 	wget				\
 	tar
 
