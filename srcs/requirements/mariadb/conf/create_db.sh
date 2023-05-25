@@ -22,7 +22,7 @@ if [ ! -d "/var/lib/mysql/mysql" ]; then
     chown -R mysql:mysql /var/lib/mysql
 fi
 
-if [ ! -d "/var/lib/mysql/wordpress" ]; then
+if [ ! -d "/var/lib/mysql/${DB_NAME}" ]; then
 	{
 		echo "USE mysql;"
 		echo "FLUSH PRIVILEGES;"
