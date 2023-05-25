@@ -9,7 +9,7 @@ ARG DB_NAME \
 # install required dependencies
 RUN apk update && apk add --no-cache mariadb mariadb-client
 
-# exposes 3306 default port
+# exposes 3306 default mariadb port
 EXPOSE 3306
 
 # copies script and backup files into container
