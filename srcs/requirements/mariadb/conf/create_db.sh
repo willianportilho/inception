@@ -34,7 +34,7 @@ if [ ! -d "/var/lib/mysql/wordpress" ]; then
 	} | /usr/bin/mysqld --user=mysql --bootstrap
 
 	/usr/bin/mysqld --user=mysql &
-	while ! mysqladmin ping -h localhost --silent; do
+	while ! mysqladmin -uroot -p"${DB_ROOT_PASS}" ping -h localhost --silent; do
 		sleep 1
 	done
     mysql -uroot -p"${DB_ROOT_PASS}" ${DB_NAME} < ./backup.sql
