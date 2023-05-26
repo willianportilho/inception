@@ -38,7 +38,7 @@ WORKDIR	/var/www
 # copies script file into container
 COPY ./requirements/wordpress/tools/wp-config-create.sh .
 
-# expose port 9000 to php-fpm
+# exposes port 9000
 EXPOSE 9000
 
 # change the permissions and run the script
