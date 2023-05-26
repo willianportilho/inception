@@ -16,8 +16,8 @@ EXPOSE 3306
 COPY requirements/mariadb/conf/create_db.sh .
 COPY requirements/mariadb/tools/backup.sql .
 
-# executes script
-RUN sh create_db.sh
+# change the permissions and run the script
+RUN chmod +x create_db.sh && sh create_db.sh
 
 # defines the 'mysql' user to run the commands in the container
 USER mysql

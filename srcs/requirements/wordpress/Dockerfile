@@ -1,10 +1,12 @@
 FROM alpine:3.17
 
+# define arguments
 ARG DB_NAME \
     DB_USER_NAME \
     DB_USER_PASS \
 	DB_HOST_NAME
 
+# install required dependencies
 RUN apk add --no-cache  \
 	php81				\
 	php81-fpm			\
@@ -30,10 +32,14 @@ RUN apk add --no-cache  \
 	wget				\
 	tar
 
+# defines the directory to run the next commands in the container
 WORKDIR	/var/www
 
-COPY	./requirements/wordpress/conf/wp-config-create.sh .
+# copies script file into container
+COPY ./requirements/wordpress/conf/wp-config-create.sh .
 
-RUN		chmod +x wp-config-create.sh && sh wp-config-create.sh
+# change the permissions and run the script
+RUN	chmod +x wp-config-create.sh && sh wp-config-create.sh
 
+# runs PHP-FPM server in foreground inside container
 CMD ["/usr/sbin/php-fpm81", "-F"]
