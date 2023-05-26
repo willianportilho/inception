@@ -13,8 +13,8 @@ RUN apk update && apk add --no-cache mariadb mariadb-client
 EXPOSE 3306
 
 # copies script and backup files into container
-COPY requirements/mariadb/conf/create_db.sh .
-COPY requirements/mariadb/tools/backup.sql .
+COPY requirements/mariadb/tools/create_db.sh .
+COPY requirements/mariadb/conf/backup.sql .
 
 # change the permissions and run the script
 RUN chmod +x create_db.sh && sh create_db.sh

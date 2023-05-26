@@ -36,7 +36,7 @@ RUN apk add --no-cache  \
 WORKDIR	/var/www
 
 # copies script file into container
-COPY ./requirements/wordpress/conf/wp-config-create.sh .
+COPY ./requirements/wordpress/tools/wp-config-create.sh .
 
 # expose port 9000 to php-fpm
 EXPOSE 9000

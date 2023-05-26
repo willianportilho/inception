@@ -11,7 +11,7 @@ RUN mkdir /etc/nginx/ssl
 RUN openssl req -newkey rsa:4096 -x509 -sha256 -days 365 -nodes \
     -out /etc/nginx/ssl/wportilh.crt \
     -keyout /etc/nginx/ssl/wportilh.key \
-    -subj "/C=FR/ST=PARIS/L=PARIS/O=42/OU=wportilh/CN=wportilh/"
+    -subj "/C=BR/ST=SP/L=SP/O=42/OU=wportilh/CN=wportilh/"
 
 # exposes 443 default ssl/tls port
 EXPOSE 443
